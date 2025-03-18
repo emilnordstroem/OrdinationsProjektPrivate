@@ -46,68 +46,76 @@ class OpretDagligSkaevOrdinationTest {
 
     @Test
     void testCase35(){
-        //TODO Exception
-        DagligSkaev dagligSkaev = Controller.getTestController().opretDagligSkaevOrdination(
-                LocalDate.of(2025, 1,10),
-                LocalDate.of(2025, 1,1),
-                new Patient("010125-2025", "Christian", 85.5),
-                new Laegemiddel("", 1,1.1,1,"Sprøjte"),
-                new LocalTime[]{
-                        LocalTime.of(12, 0),
-                        LocalTime.of(12, 40),
-                        LocalTime.of(16, 0),
-                        LocalTime.of(18, 45)
-                },
-                new double[]{ 0.5, 1, 2.5, 3 }
-        );
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            DagligSkaev dagligSkaev = Controller.getTestController().opretDagligSkaevOrdination(
+                    LocalDate.of(2025, 1,10),
+                    LocalDate.of(2025, 1,1),
+                    new Patient("010125-2025", "Christian", 85.5),
+                    new Laegemiddel("", 1,1.1,1,"Sprøjte"),
+                    new LocalTime[]{
+                            LocalTime.of(12, 0),
+                            LocalTime.of(12, 40),
+                            LocalTime.of(16, 0),
+                            LocalTime.of(18, 45)
+                    },
+                    new double[]{ 0.5, 1, 2.5, 3 }
+            );
+        });
+        assertEquals("startdato må ikke ligge efter slutdato", exception.getMessage());
     }
 
     @Test
     void testCase36(){
-        //TODO Exception
-        DagligSkaev dagligSkaev = Controller.getTestController().opretDagligSkaevOrdination(
-                LocalDate.of(2025, 1,1),
-                LocalDate.of(2025, 1,1),
-                null,
-                null,
-                null,
-                null
-        );
+        Exception exception = assertThrows(NullPointerException.class, () -> {
+            DagligSkaev dagligSkaev = Controller.getTestController().opretDagligSkaevOrdination(
+                    LocalDate.of(2025, 1,1),
+                    LocalDate.of(2025, 1,1),
+                    null,
+                    null,
+                    null,
+                    null
+            );
+        });
+        assertEquals("", exception.getMessage());
     }
 
     @Test
     void testCase37(){
-        //TODO Exception
-        DagligSkaev dagligSkaev = Controller.getTestController().opretDagligSkaevOrdination(
-                LocalDate.of(2025, 1,1),
-                LocalDate.of(2025, 1,1),
-                new Patient("010125-2025", "Christian", 85.5),
-                new Laegemiddel("", 1,1.1,1,"Sprøjte"),
-                new LocalTime[]{
-                        LocalTime.of(12, 0),
-                        LocalTime.of(12, 40),
-                        LocalTime.of(16, 0),
-                },
-                new double[]{ 0.5, 1, 2.5, 3 }
-        );
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            DagligSkaev dagligSkaev = Controller.getTestController().opretDagligSkaevOrdination(
+                    LocalDate.of(2025, 1,1),
+                    LocalDate.of(2025, 1,1),
+                    new Patient("010125-2025", "Christian", 85.5),
+                    new Laegemiddel("", 1,1.1,1,"Sprøjte"),
+                    new LocalTime[]{
+                            LocalTime.of(12, 0),
+                            LocalTime.of(12, 40),
+                            LocalTime.of(16, 0),
+                    },
+                    new double[]{ 0.5, 1, 2.5, 3 }
+            );
+        });
+        assertEquals("uenstemmelse i arraylængde på klokkeSlet opmålt antalEnheder", exception.getMessage());
     }
 
     @Test
     void testCase38(){
-        //TODO Exception
-        DagligSkaev dagligSkaev = Controller.getTestController().opretDagligSkaevOrdination(
-                LocalDate.of(2025, 1,1),
-                LocalDate.of(2025, 1,1),
-                new Patient("010125-2025", "Christian", 85.5),
-                new Laegemiddel("", 1,1.1,1,"Sprøjte"),
-                new LocalTime[]{
-                        LocalTime.of(12, 0),
-                        LocalTime.of(12, 40),
-                        LocalTime.of(16, 0),
-                        LocalTime.of(18, 45)
-                },
-                new double[]{ 0.5, 1, 2.5}
-        );
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            DagligSkaev dagligSkaev = Controller.getTestController().opretDagligSkaevOrdination(
+                    LocalDate.of(2025, 1,1),
+                    LocalDate.of(2025, 1,1),
+                    new Patient("010125-2025", "Christian", 85.5),
+                    new Laegemiddel("", 1,1.1,1,"Sprøjte"),
+                    new LocalTime[]{
+                            LocalTime.of(12, 0),
+                            LocalTime.of(12, 40),
+                            LocalTime.of(16, 0),
+                            LocalTime.of(18, 45)
+                    },
+                    new double[]{ 0.5, 1, 2.5}
+            );
+        });
+        assertEquals("uenstemmelse i arraylængde på klokkeSlet opmålt antalEnheder", exception.getMessage());
     }
 
 }

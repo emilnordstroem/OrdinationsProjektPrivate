@@ -29,10 +29,12 @@ class AnbefaletDosisPrDoegnTest {
 
     @Test
     void testCase40(){
-        //TODO EXCEPTION
-        double actualResult = Controller.getTestController().anbefaletDosisPrDoegn(
-               null, null
-        );
+        Exception exception = assertThrows(NullPointerException.class, () -> {
+            double actualResult = Controller.getTestController().anbefaletDosisPrDoegn(
+                    null, null
+            );
+        });
+        assertEquals("patient/laegemiddel == null", exception.getMessage());
     }
 
 }

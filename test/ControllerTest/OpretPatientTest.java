@@ -29,12 +29,27 @@ class OpretPatientTest {
 
     @Test
     void testCase46(){
-        //TODO EXCEPTION
-        Patient patient = Controller.getTestController().opretPatient(
-                "xxxx-20dd",
-                "0",
-                -1
-        );
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Patient patient = Controller.getTestController().opretPatient(
+                    "xxxxxxXX-2025",
+                    "Marianne",
+                    -1
+            );
+        });
+        assertEquals("ugyldig CPR", exception.getMessage());
+    }
+
+    // Denne test har ikke et korrekt numerisk TestCaseID
+    @Test
+    void testCase4X(){
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Patient patient = Controller.getTestController().opretPatient(
+                    "xxxxxx-2025",
+                    "Marianne",
+                    -1
+            );
+        });
+        assertEquals("acceptere ikke negativt numerisk vaegt", exception.getMessage());
     }
 
 }

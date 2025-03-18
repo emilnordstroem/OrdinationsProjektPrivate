@@ -57,44 +57,50 @@ class AntalOrdinationerPrVaegtPrLaegeMiddelTest {
 
     @Test
     void testCase64(){
-        //TODO EXCEPTION
-        int actualResult = Controller.getTestController().antalOrdinationerPrVaegtPrLaegemiddel(
-                50,
-                100,
-                null
-        );
+        Exception exception = assertThrows(NullPointerException.class, () -> {
+            int actualResult = Controller.getTestController().antalOrdinationerPrVaegtPrLaegemiddel(
+                    50,
+                    100,
+                    null
+            );
+        });
+        assertEquals("", exception.getMessage());
     }
 
     @Test
     void testCase65(){
-        //TODO EXCEPTION
-        int actualResult = Controller.getTestController().antalOrdinationerPrVaegtPrLaegemiddel(
-                -1,
-                -1,
-                new Laegemiddel(
-                        "pencilin",
-                        0.1,
-                        0.2,
-                        0.3,
-                        "styk"
-                )
-        );
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            int actualResult = Controller.getTestController().antalOrdinationerPrVaegtPrLaegemiddel(
+                    -1,
+                    -1,
+                    new Laegemiddel(
+                            "pencilin",
+                            0.1,
+                            0.2,
+                            0.3,
+                            "styk"
+                    )
+            );
+        });
+        assertEquals("ugyldigt input af vaegtStart/vaegtSlut (obs. på at start ikke må være større end slut)", exception.getMessage());
     }
 
     @Test
     void testCase66(){
-        //TODO EXCEPTION
-        int actualResult = Controller.getTestController().antalOrdinationerPrVaegtPrLaegemiddel(
-                100,
-                50,
-                new Laegemiddel(
-                        "pencilin",
-                        0.1,
-                        0.2,
-                        0.3,
-                        "styk"
-                )
-        );
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            int actualResult = Controller.getTestController().antalOrdinationerPrVaegtPrLaegemiddel(
+                    100,
+                    50,
+                    new Laegemiddel(
+                            "pencilin",
+                            0.1,
+                            0.2,
+                            0.3,
+                            "styk"
+                    )
+            );
+        });
+        assertEquals("ugyldigt input af vaegtStart/vaegtSlut (obs. på at start ikke må være større end slut)", exception.getMessage());
     }
 
 }

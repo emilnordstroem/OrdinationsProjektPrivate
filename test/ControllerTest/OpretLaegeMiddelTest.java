@@ -33,26 +33,30 @@ class OpretLaegeMiddelTest {
 
     @Test
     void testCase49(){
-        //TODO EXCEPTION
-        Laegemiddel laegemiddel = Controller.getTestController().opretLaegemiddel(
-                "Matias",
-                -0.1,
-                -0,
-                -0.1,
-                "styk"
-        );
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            Laegemiddel laegemiddel = Controller.getTestController().opretLaegemiddel(
+                    "Matias",
+                    -0.1,
+                    -0,
+                    -0.1,
+                    "styk"
+            );
+        });
+        assertEquals("enhedPrKgPrDoegn kan ikke være en negativ numerisk værdi", exception.getMessage());
     }
 
     @Test
     void testCase50(){
-        //TODO EXCEPTION
-        Laegemiddel laegemiddel = Controller.getTestController().opretLaegemiddel(
-                null,
-                0.2,
-                0.5,
-                1,
-                null
-        );
+        Exception exception = assertThrows(NullPointerException.class, () -> {
+            Laegemiddel laegemiddel = Controller.getTestController().opretLaegemiddel(
+                    null,
+                    0.2,
+                    0.5,
+                    1,
+                    null
+            );
+        });
+        assertEquals("navn og eller enhed er null", exception.getMessage());
     }
 
 }

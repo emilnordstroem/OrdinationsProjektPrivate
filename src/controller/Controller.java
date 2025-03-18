@@ -31,6 +31,13 @@ public class Controller {
 	 */
 	public PN opretPNOrdination(LocalDate startDato, LocalDate slutDato,
 			Patient patient, Laegemiddel laegemiddel, double antal) {
+		if(!checkStartFoerSlut(startDato, slutDato)){
+			throw new IllegalArgumentException("startdato må ikke ligge efter slutdato");
+		} else if(patient == null || laegemiddel == null){
+			throw new NullPointerException("patient/laegemiddel er null");
+		} else if (antal < 1) {
+			throw new IllegalArgumentException("antal må ikke være under 1");
+		}
 		PN pn = new PN(startDato, slutDato, antal);
 		patient.tilføjOrdination(pn);
 		pn.setLaegemiddel(laegemiddel);
@@ -44,13 +51,23 @@ public class Controller {
 			LocalDate slutDato, Patient patient, Laegemiddel laegemiddel,
 			double morgenAntal, double middagAntal, double aftenAntal,
 			double natAntal) {
+		if(!checkStartFoerSlut(startDato, slutDato)){
+			throw new IllegalArgumentException("startdato må ikke ligge efter slutdato");
+		} else if(patient == null || laegemiddel == null){
+			throw new NullPointerException("patient/laegemiddel er null");
+		} else if (morgenAntal < 0 || middagAntal < 0 || aftenAntal < 0 || natAntal < 0) {
+			throw new IllegalArgumentException("antal må ikke være under 0");
+		}
 		DagligFast dagligFast = new DagligFast(startDato, slutDato);
+
 		dagligFast.opretDosis(LocalTime.of(8,0), morgenAntal);
 		dagligFast.opretDosis(LocalTime.of(13,0), middagAntal);
 		dagligFast.opretDosis(LocalTime.of(19,0), aftenAntal);
 		dagligFast.opretDosis(LocalTime.of(1,0), natAntal);
+
 		patient.tilføjOrdination(dagligFast);
 		dagligFast.setLaegemiddel(laegemiddel);
+
 		return dagligFast;
 	}
 
@@ -60,6 +77,14 @@ public class Controller {
 	public DagligSkaev opretDagligSkaevOrdination(LocalDate startDato,
 			LocalDate slutDato, Patient patient, Laegemiddel laegemiddel,
 			LocalTime[] klokkeSlet, double[] antalEnheder) {
+
+		if(!checkStartFoerSlut(startDato, slutDato)){
+			throw new IllegalArgumentException("startdato må ikke ligge efter slutdato");
+		} else if(patient == null || laegemiddel == null || klokkeSlet == null || antalEnheder == null){
+			throw new NullPointerException("patient/laegemiddel/klokkeSlet/antalEnheder er null");
+		} else if (klokkeSlet.length != antalEnheder.length) {
+			throw new IllegalArgumentException("uenstemmelse i arraylængde på klokkeSlet opmålt antalEnheder");
+		}
 
 		DagligSkaev dagligSkaev = new DagligSkaev(startDato, slutDato);
 
@@ -86,7 +111,11 @@ public class Controller {
 	 * anvendes, og den er afhængig af patientens vægt.
 	 */
 	public double anbefaletDosisPrDoegn(Patient patient, Laegemiddel laegemiddel) {
-		return laegemiddel.anbefaletDosisPrDoegn((int) patient.getVaegt());
+		try {
+			return laegemiddel.anbefaletDosisPrDoegn((int) patient.getVaegt());
+		} catch (NullPointerException e) {
+			throw new NullPointerException("patient/laegemiddel == null");
+		}
 	}
 
 	/**
@@ -95,6 +124,11 @@ public class Controller {
 	 */
 	public int antalOrdinationerPrVaegtPrLaegemiddel(double vaegtStart,
 													 double vaegtSlut, Laegemiddel laegemiddel) {
+		if(laegemiddel == null){
+			throw new NullPointerException("laegemiddel == null");
+		} else if (vaegtSlut < 0 || vaegtStart < 0 || vaegtStart > vaegtSlut) {
+			throw new IllegalArgumentException("ugyldigt input af vaegtStart/vaegtSlut (obs. på at start ikke må være større end slut)");
+		}
 		int antalOrdinationer = 0;
 		for (Patient patient : controller.getAllPatienter()) {
 			if((patient.getVaegt() >= vaegtStart && patient.getVaegt() <= vaegtSlut)) {
@@ -131,6 +165,11 @@ public class Controller {
 	}
 
 	public Patient opretPatient(String cpr, String navn, double vaegt) {
+		if(cpr.length() != 11){
+			throw new IllegalArgumentException("ugyldig CPR");
+		} else if (vaegt < 0) {
+			throw new IllegalArgumentException("acceptere ikke negativt numerisk vaegt");
+		}
 		Patient patient = new Patient(cpr, navn, vaegt);
 		storage.addPatient(patient);
 		return patient;
@@ -139,6 +178,11 @@ public class Controller {
 	public Laegemiddel opretLaegemiddel(String navn,
 			double enhedPrKgPrDoegnLet, double enhedPrKgPrDoegnNormal,
 			double enhedPrKgPrDoegnTung, String enhed) {
+		if(enhedPrKgPrDoegnLet < 0 || enhedPrKgPrDoegnNormal < 0 || enhedPrKgPrDoegnTung < 0){
+			throw new IllegalArgumentException("enhedPrKgPrDoegn kan ikke være en negativ numerisk værdi");
+		} else if (navn == null || enhed == null) {
+			throw new NullPointerException("navn og eller enhed er null");
+		}
 		Laegemiddel laegemiddel = new Laegemiddel(navn, enhedPrKgPrDoegnLet,
 				enhedPrKgPrDoegnNormal, enhedPrKgPrDoegnTung, enhed);
 		storage.addLaegemiddel(laegemiddel);
