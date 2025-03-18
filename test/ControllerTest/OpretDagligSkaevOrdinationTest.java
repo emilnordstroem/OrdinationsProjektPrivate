@@ -76,7 +76,7 @@ class OpretDagligSkaevOrdinationTest {
                     null
             );
         });
-        assertEquals("", exception.getMessage());
+        assertEquals("patient/laegemiddel/klokkeSlet/antalEnheder er null", exception.getMessage());
     }
 
     @Test

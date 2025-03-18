@@ -46,8 +46,8 @@ class OpretDagligFastOrdinationTest {
     void testCase29(){
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             DagligFast dagligFast = Controller.getTestController().opretDagligFastOrdination(
-                    LocalDate.of(2025, 1,1),
                     LocalDate.of(2025, 1,10),
+                    LocalDate.of(2025, 1,1),
                     new Patient("010125-2025", "Christian", 85.5),
                     new Laegemiddel("", 1,1.1,1,"Sprøjte"),
                     0,

@@ -130,7 +130,7 @@ public class Controller {
 			throw new IllegalArgumentException("ugyldigt input af vaegtStart/vaegtSlut (obs. på at start ikke må være større end slut)");
 		}
 		int antalOrdinationer = 0;
-		for (Patient patient : controller.getAllPatienter()) {
+		for (Patient patient : storage.getAllPatienter()) {
 			if((patient.getVaegt() >= vaegtStart && patient.getVaegt() <= vaegtSlut)) {
 				for (Ordination ordination : patient.getOrdinationer()) {
 					if(ordination.getLaegemiddel().equals(laegemiddel)) {

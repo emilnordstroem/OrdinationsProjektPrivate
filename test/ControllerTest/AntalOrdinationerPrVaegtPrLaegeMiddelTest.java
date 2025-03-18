@@ -64,7 +64,7 @@ class AntalOrdinationerPrVaegtPrLaegeMiddelTest {
                     null
             );
         });
-        assertEquals("", exception.getMessage());
+        assertEquals("laegemiddel == null", exception.getMessage());
     }
 
     @Test

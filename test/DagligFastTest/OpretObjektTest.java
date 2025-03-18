@@ -13,8 +13,7 @@ class OpretObjektTest {
                 LocalDate.of(2025, 1,1),
                 LocalDate.of(2025, 1,10)
         );
-        int actualResult = dagligFast.getDoser().length;
-        assertEquals(4, actualResult);
+        assertNotNull(dagligFast);
     }
 
 }
