@@ -19,16 +19,15 @@ public class DagligFast extends Ordination {
     }
 
     public void opretDosis(LocalTime tid, double antal) {
-        Dosis dosis = new Dosis(tid, antal);
         int hour = tid.getHour();
         if(hour == 0){
             hour++;
         }
-        int[] indexMapping = {3, 0, 1, 2}; // 0-6 -> 3, 7-11 -> 0, 12-17 -> 1, 18-23 -> 2
 
+        int[] indexMapping = {3, 0, 1, 2}; // 0-6 -> 3, 7-11 -> 0, 12-17 -> 1, 18-23 -> 2
         int index = indexMapping[hour / 6];
 
-        doser[index] = dosis;
+        doser[index] = new Dosis(tid, doser[index].getAntal() + antal);
     }
 
     @Override
