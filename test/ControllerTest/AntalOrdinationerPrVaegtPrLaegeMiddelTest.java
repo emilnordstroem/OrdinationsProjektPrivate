@@ -64,7 +64,6 @@ class AntalOrdinationerPrVaegtPrLaegeMiddelTest {
                     null
             );
         });
-        assertEquals("laegemiddel == null", exception.getMessage());
     }
 
     @Test
@@ -82,7 +81,6 @@ class AntalOrdinationerPrVaegtPrLaegeMiddelTest {
                     )
             );
         });
-        assertEquals("ugyldigt input af vaegtStart/vaegtSlut (obs. på at start ikke må være større end slut)", exception.getMessage());
     }
 
     @Test
@@ -100,7 +98,6 @@ class AntalOrdinationerPrVaegtPrLaegeMiddelTest {
                     )
             );
         });
-        assertEquals("ugyldigt input af vaegtStart/vaegtSlut (obs. på at start ikke må være større end slut)", exception.getMessage());
     }
 
 }

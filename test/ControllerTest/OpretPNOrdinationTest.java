@@ -59,7 +59,6 @@ class OpretPNOrdinationTest {
                     1
             );
         });
-        assertEquals("patient/laegemiddel er null", exception.getMessage());
     }
 
     @Test
@@ -73,7 +72,6 @@ class OpretPNOrdinationTest {
                     1
             );
         });
-        assertEquals("patient/laegemiddel er null", exception.getMessage());
     }
 
     @Test

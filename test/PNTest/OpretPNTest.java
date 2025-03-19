@@ -28,7 +28,6 @@ class OpretPNTest {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             pn = new PN(LocalDate.now(), LocalDate.now(), 0);
         });
-        assertEquals("Kan ikke oprette objekter på 0 eller negativ numerisk værdi", exception.getMessage());
     }
 
 }

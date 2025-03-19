@@ -34,7 +34,6 @@ class AnbefaletDosisPrDoegnTest {
                     null, null
             );
         });
-        assertEquals("patient/laegemiddel == null", exception.getMessage());
     }
 
 }

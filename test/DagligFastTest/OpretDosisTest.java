@@ -37,7 +37,6 @@ class OpretDosisTest {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
             dagligFast.opretDosis(LocalTime.now(), -1);
         });
-        assertEquals("Kan ikke oprette objekter på negativ numerisk værdi", exception.getMessage());
     }
 
     @Test

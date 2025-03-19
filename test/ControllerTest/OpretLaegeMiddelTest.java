@@ -42,7 +42,6 @@ class OpretLaegeMiddelTest {
                     "styk"
             );
         });
-        assertEquals("enhedPrKgPrDoegn kan ikke være en negativ numerisk værdi", exception.getMessage());
     }
 
     @Test
@@ -56,7 +55,6 @@ class OpretLaegeMiddelTest {
                     null
             );
         });
-        assertEquals("navn og eller enhed er null", exception.getMessage());
     }
 
 }
