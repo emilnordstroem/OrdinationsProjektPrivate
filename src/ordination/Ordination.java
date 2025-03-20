@@ -8,8 +8,12 @@ public abstract class Ordination {
     private LocalDate slutDato;
     private Laegemiddel laegemiddel;
 
-
     protected Ordination(LocalDate startDato, LocalDate slutDato) {
+        if(startDato == null || slutDato == null){
+            throw new NullPointerException("null værdi i Ordination constructor");
+        } else if (slutDato.isBefore(startDato)) {
+            throw new IllegalArgumentException("startdato kan ikke være efter slutdato");
+        }
         this.startDato = startDato;
         this.slutDato = slutDato;
     }
