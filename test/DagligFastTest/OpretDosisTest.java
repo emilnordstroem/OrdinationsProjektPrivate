@@ -19,29 +19,24 @@ class OpretDosisTest {
     }
 
     @Test
-    void testCase4() {
+    void testCase1() {
         dagligFast.opretDosis(LocalTime.now(), 5);
         double actualResult = dagligFast.samletDosis();
         assertEquals(5, actualResult);
     }
 
     @Test
-    void testCase5() {
+    void testCase2() {
         dagligFast.opretDosis(LocalTime.now(), 0);
         double actualResult = dagligFast.samletDosis();
         assertEquals(0, actualResult);
     }
 
     @Test
-    void testCase6() {
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+    void testCase3() {
+        assertThrows(IllegalArgumentException.class, () -> {
             dagligFast.opretDosis(LocalTime.now(), -1);
         });
-    }
-
-    @Test
-    void testCase7() {
-        //TODO
     }
 
 }

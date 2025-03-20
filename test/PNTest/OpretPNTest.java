@@ -12,20 +12,20 @@ class OpretPNTest {
     private PN pn;
 
     @Test
-    void testCase51(){
+    void testCase1(){
         pn = new PN(LocalDate.now(), LocalDate.now(), 5);
         assertNotNull(pn);
     }
 
     @Test
-    void testCase52(){
+    void testCase2(){
         pn = new PN(LocalDate.now(), LocalDate.now(), 1);
         assertNotNull(pn);
     }
 
     @Test
-    void testCase53(){
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+    void testCase3(){
+        assertThrows(IllegalArgumentException.class, () -> {
             pn = new PN(LocalDate.now(), LocalDate.now(), 0);
         });
     }

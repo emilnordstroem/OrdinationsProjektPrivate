@@ -12,7 +12,7 @@ class DoegnDosisTest {
     private DagligFast dagligFast;
 
     @Test
-    void testCase12() {
+    void testCase1() {
         dagligFast = new DagligFast(
                 LocalDate.of(2025,1,1),
                 LocalDate.of(2025, 1,1)
@@ -32,7 +32,7 @@ class DoegnDosisTest {
     }
 
     @Test
-    void testCase13(){
+    void testCase2(){
         dagligFast = new DagligFast(
                 LocalDate.of(2025,1,1),
                 LocalDate.of(2025, 1,1)

@@ -18,7 +18,7 @@ class SamletDosisTest {
     }
 
     @Test
-    void testCase10(){
+    void testCase1(){
         for(int dosisIndex = 0; dosisIndex < 6; dosisIndex++){
             dagligSkaev.opretDosis(LocalTime.now(), 1);
         }
@@ -27,7 +27,7 @@ class SamletDosisTest {
     }
 
     @Test
-    void testCase11(){
+    void testCase2(){
         for(int dosisIndex = 0; dosisIndex < 6; dosisIndex++){
             dagligSkaev.opretDosis(LocalTime.now(), 0);
         }

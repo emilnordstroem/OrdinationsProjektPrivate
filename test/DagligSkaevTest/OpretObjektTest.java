@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class OpretObjektTest {
 
     @Test
-    void testCase20(){
+    void testCase1(){
         DagligSkaev dagligSkaev = new DagligSkaev(
                 LocalDate.now(),
                 LocalDate.now()

@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class AnbefaletDosisPrDoegnTest {
 
     @Test
-    void testCase39(){
+    void testCase1(){
         double actualResult = Controller.getTestController().anbefaletDosisPrDoegn(
                 new Patient(
                         "",
@@ -28,9 +28,9 @@ class AnbefaletDosisPrDoegnTest {
     }
 
     @Test
-    void testCase40(){
-        Exception exception = assertThrows(NullPointerException.class, () -> {
-            double actualResult = Controller.getTestController().anbefaletDosisPrDoegn(
+    void testCase2(){
+        assertThrows(NullPointerException.class, () -> {
+            Controller.getTestController().anbefaletDosisPrDoegn(
                     null, null
             );
         });

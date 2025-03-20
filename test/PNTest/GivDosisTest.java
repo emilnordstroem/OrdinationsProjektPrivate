@@ -22,31 +22,31 @@ class GivDosisTest {
     }
 
     @Test
-    void testCase54(){
+    void testCase1(){
         boolean actualResult = pn.givDosis(LocalDate.of(2025, 1,5));
         assertTrue(actualResult);
     }
 
     @Test
-    void testCase55(){
+    void testCase2(){
         boolean actualResult = pn.givDosis(LocalDate.of(2025, 1,1));
         assertTrue(actualResult);
     }
 
     @Test
-    void testCase56(){
+    void testCase3(){
         boolean actualResult = pn.givDosis(LocalDate.of(2025, 1,10));
         assertTrue(actualResult);
     }
 
     @Test
-    void testCase57(){
+    void testCase4(){
         boolean actualResult = pn.givDosis(LocalDate.of(2024, 12,31));
         assertFalse(actualResult);
     }
 
     @Test
-    void testCase58(){
+    void testCase5(){
         boolean actualResult = pn.givDosis(LocalDate.of(2025, 1,11));
         assertFalse(actualResult);
     }

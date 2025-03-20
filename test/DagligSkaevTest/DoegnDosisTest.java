@@ -19,7 +19,7 @@ class DoegnDosisTest {
     }
 
     @Test
-    void testCase14(){
+    void testCase1(){
         for(int dosisIndex = 0; dosisIndex < 6; dosisIndex++){
             dagligSkaev.opretDosis(LocalTime.now(), 1);
         }
@@ -28,7 +28,7 @@ class DoegnDosisTest {
     }
 
     @Test
-    void testCase15(){
+    void testCase2(){
         for(int dosisIndex = 0; dosisIndex < 6; dosisIndex++){
             dagligSkaev.opretDosis(LocalTime.now(), 0);
         }

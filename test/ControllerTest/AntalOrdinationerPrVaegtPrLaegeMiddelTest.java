@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class AntalOrdinationerPrVaegtPrLaegeMiddelTest {
 
     @Test
-    void testCase61(){
+    void testCase1(){
         int actualResult = Controller.getTestController().antalOrdinationerPrVaegtPrLaegemiddel(
                 50,
                 100,
@@ -24,7 +24,7 @@ class AntalOrdinationerPrVaegtPrLaegeMiddelTest {
     }
 
     @Test
-    void testCase62(){
+    void testCase2(){
         int actualResult = Controller.getTestController().antalOrdinationerPrVaegtPrLaegemiddel(
                 80,
                 80,
@@ -40,7 +40,7 @@ class AntalOrdinationerPrVaegtPrLaegeMiddelTest {
     }
 
     @Test
-    void testCase63(){
+    void testCase3(){
         int actualResult = Controller.getTestController().antalOrdinationerPrVaegtPrLaegemiddel(
                 0,
                 0,
@@ -56,9 +56,9 @@ class AntalOrdinationerPrVaegtPrLaegeMiddelTest {
     }
 
     @Test
-    void testCase64(){
-        Exception exception = assertThrows(NullPointerException.class, () -> {
-            int actualResult = Controller.getTestController().antalOrdinationerPrVaegtPrLaegemiddel(
+    void testCase4(){
+        assertThrows(NullPointerException.class, () -> {
+            Controller.getTestController().antalOrdinationerPrVaegtPrLaegemiddel(
                     50,
                     100,
                     null
@@ -67,9 +67,9 @@ class AntalOrdinationerPrVaegtPrLaegeMiddelTest {
     }
 
     @Test
-    void testCase65(){
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            int actualResult = Controller.getTestController().antalOrdinationerPrVaegtPrLaegemiddel(
+    void testCase5(){
+       assertThrows(IllegalArgumentException.class, () -> {
+           Controller.getTestController().antalOrdinationerPrVaegtPrLaegemiddel(
                     -1,
                     -1,
                     new Laegemiddel(
@@ -84,9 +84,9 @@ class AntalOrdinationerPrVaegtPrLaegeMiddelTest {
     }
 
     @Test
-    void testCase66(){
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            int actualResult = Controller.getTestController().antalOrdinationerPrVaegtPrLaegemiddel(
+    void testCase6(){
+        assertThrows(IllegalArgumentException.class, () -> {
+            Controller.getTestController().antalOrdinationerPrVaegtPrLaegemiddel(
                     100,
                     50,
                     new Laegemiddel(

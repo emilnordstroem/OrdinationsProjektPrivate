@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class OpretPNOrdinationTest {
 
     @Test
-    void testCase21(){
+    void testCase1(){
         PN pn = Controller.getTestController().opretPNOrdination(
                 LocalDate.of(2025, 1,1),
                 LocalDate.of(2025, 1,10),
@@ -23,7 +23,7 @@ class OpretPNOrdinationTest {
     }
 
     @Test
-    void testCase22(){
+    void testCase2(){
         PN pn = Controller.getTestController().opretPNOrdination(
                 LocalDate.of(2025, 1,1),
                 LocalDate.of(2025, 1,1),
@@ -35,9 +35,9 @@ class OpretPNOrdinationTest {
     }
 
     @Test
-    void testCase23(){
+    void testCase3(){
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            PN pn = Controller.getTestController().opretPNOrdination(
+            Controller.getTestController().opretPNOrdination(
                     LocalDate.of(2025, 1,10),
                     LocalDate.of(2025, 1,1),
                     new Patient("010125-2025", "Christian", 85.5),
@@ -49,9 +49,9 @@ class OpretPNOrdinationTest {
     }
 
     @Test
-    void testCase24(){
-        Exception exception = assertThrows(NullPointerException.class, () -> {
-            PN pn = Controller.getTestController().opretPNOrdination(
+    void testCase4(){
+        assertThrows(NullPointerException.class, () -> {
+            Controller.getTestController().opretPNOrdination(
                     LocalDate.of(2025, 1,1),
                     LocalDate.of(2025, 1,10),
                     null,
@@ -62,9 +62,9 @@ class OpretPNOrdinationTest {
     }
 
     @Test
-    void testCase25(){
-        Exception exception = assertThrows(NullPointerException.class, () -> {
-            PN pn = Controller.getTestController().opretPNOrdination(
+    void testCase5(){
+        assertThrows(NullPointerException.class, () -> {
+            Controller.getTestController().opretPNOrdination(
                     LocalDate.of(2025, 1,1),
                     LocalDate.of(2025, 1,10),
                     new Patient("010125-2025", "Christian", 85.5),
@@ -75,9 +75,9 @@ class OpretPNOrdinationTest {
     }
 
     @Test
-    void testCase26(){
+    void testCase6(){
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            PN pn = Controller.getTestController().opretPNOrdination(
+            Controller.getTestController().opretPNOrdination(
                     LocalDate.of(2025, 1,1),
                     LocalDate.of(2025, 1,10),
                     new Patient("010125-2025", "Christian", 85.5),

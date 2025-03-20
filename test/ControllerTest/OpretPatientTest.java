@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class OpretPatientTest {
 
     @Test
-    void testCase44(){
+    void testCase1(){
         Patient patient = Controller.getTestController().opretPatient(
                 "010125-0000",
                 "Marianne",
@@ -18,7 +18,7 @@ class OpretPatientTest {
     }
 
     @Test
-    void testCase45(){
+    void testCase2(){
         Patient patient = Controller.getTestController().opretPatient(
                 "010125-0000",
                 "Marianne",
@@ -28,9 +28,9 @@ class OpretPatientTest {
     }
 
     @Test
-    void testCase46(){
+    void testCase3(){
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            Patient patient = Controller.getTestController().opretPatient(
+            Controller.getTestController().opretPatient(
                     "xxxxxxXX-2025",
                     "Marianne",
                     -1
@@ -41,9 +41,9 @@ class OpretPatientTest {
 
     // Denne test har ikke et korrekt numerisk TestCaseID
     @Test
-    void testCase4X(){
+    void testCase4(){
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            Patient patient = Controller.getTestController().opretPatient(
+            Controller.getTestController().opretPatient(
                     "xxxxxx-2025",
                     "Marianne",
                     -1

@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class OpretLaegeMiddelTest {
 
     @Test
-    void testCase47(){
+    void testCase1(){
         Laegemiddel laegemiddel = Controller.getTestController().opretLaegemiddel(
                 "Matias",
                 0.2,
@@ -20,7 +20,7 @@ class OpretLaegeMiddelTest {
     }
 
     @Test
-    void testCase48(){
+    void testCase2(){
         Laegemiddel laegemiddel = Controller.getTestController().opretLaegemiddel(
                 "Matias",
                 0,
@@ -32,9 +32,9 @@ class OpretLaegeMiddelTest {
     }
 
     @Test
-    void testCase49(){
-        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            Laegemiddel laegemiddel = Controller.getTestController().opretLaegemiddel(
+    void testCase3(){
+        assertThrows(IllegalArgumentException.class, () -> {
+            Controller.getTestController().opretLaegemiddel(
                     "Matias",
                     -0.1,
                     -0,
@@ -45,9 +45,9 @@ class OpretLaegeMiddelTest {
     }
 
     @Test
-    void testCase50(){
-        Exception exception = assertThrows(NullPointerException.class, () -> {
-            Laegemiddel laegemiddel = Controller.getTestController().opretLaegemiddel(
+    void testCase4(){
+        assertThrows(NullPointerException.class, () -> {
+            Controller.getTestController().opretLaegemiddel(
                     null,
                     0.2,
                     0.5,

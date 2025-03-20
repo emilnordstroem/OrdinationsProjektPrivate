@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class OpretDagligFastOrdinationTest {
 
     @Test
-    void testCase27(){
+    void testCase1(){
         DagligFast dagligFast = Controller.getTestController().opretDagligFastOrdination(
                 LocalDate.of(2025, 1,1),
                 LocalDate.of(2025, 1,10),
@@ -28,7 +28,7 @@ class OpretDagligFastOrdinationTest {
     }
 
     @Test
-    void testCase28(){
+    void testCase2(){
         DagligFast dagligFast = Controller.getTestController().opretDagligFastOrdination(
                 LocalDate.of(2025, 1,1),
                 LocalDate.of(2025, 1,1),
@@ -43,9 +43,9 @@ class OpretDagligFastOrdinationTest {
     }
 
     @Test
-    void testCase29(){
+    void testCase3(){
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            DagligFast dagligFast = Controller.getTestController().opretDagligFastOrdination(
+            Controller.getTestController().opretDagligFastOrdination(
                     LocalDate.of(2025, 1,10),
                     LocalDate.of(2025, 1,1),
                     new Patient("010125-2025", "Christian", 85.5),
@@ -60,9 +60,9 @@ class OpretDagligFastOrdinationTest {
     }
 
     @Test
-    void testCase30(){
+    void testCase4(){
         Exception exception = assertThrows(NullPointerException.class, () -> {
-            DagligFast dagligFast = Controller.getTestController().opretDagligFastOrdination(
+            Controller.getTestController().opretDagligFastOrdination(
                     LocalDate.of(2025, 1,1),
                     LocalDate.of(2025, 1,1),
                     null,
@@ -77,9 +77,9 @@ class OpretDagligFastOrdinationTest {
     }
 
     @Test
-    void testCase32(){
+    void testCase5(){
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            DagligFast dagligFast = Controller.getTestController().opretDagligFastOrdination(
+            Controller.getTestController().opretDagligFastOrdination(
                     LocalDate.of(2025, 1,1),
                     LocalDate.of(2025, 1,1),
                     new Patient("010125-2025", "Christian", 85.5),

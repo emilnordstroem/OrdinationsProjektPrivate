@@ -22,14 +22,14 @@ class SamletDosisTest {
     }
 
     @Test
-    void testCase59(){
+    void testCase1(){
         pn.setAntalGangeGivet(10);
         double actualResult = pn.samletDosis();
         assertEquals(10, actualResult);
     }
 
     @Test
-    void testCase60(){
+    void testCase2(){
         double actualResult = pn.samletDosis();
         assertEquals(0, actualResult);
     }

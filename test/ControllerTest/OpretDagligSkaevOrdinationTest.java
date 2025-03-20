@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class OpretDagligSkaevOrdinationTest {
 
     @Test
-    void testCase33(){
+    void testCase1(){
         DagligSkaev dagligSkaev = Controller.getTestController().opretDagligSkaevOrdination(
                 LocalDate.of(2025, 1,1),
                 LocalDate.of(2025, 1,10),
@@ -32,7 +32,7 @@ class OpretDagligSkaevOrdinationTest {
     }
 
     @Test
-    void testCase34(){
+    void testCase2(){
         DagligSkaev dagligSkaev = Controller.getTestController().opretDagligSkaevOrdination(
                 LocalDate.of(2025, 1,1),
                 LocalDate.of(2025, 1,1),
@@ -45,9 +45,9 @@ class OpretDagligSkaevOrdinationTest {
     }
 
     @Test
-    void testCase35(){
+    void testCase3(){
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            DagligSkaev dagligSkaev = Controller.getTestController().opretDagligSkaevOrdination(
+            Controller.getTestController().opretDagligSkaevOrdination(
                     LocalDate.of(2025, 1,10),
                     LocalDate.of(2025, 1,1),
                     new Patient("010125-2025", "Christian", 85.5),
@@ -65,9 +65,9 @@ class OpretDagligSkaevOrdinationTest {
     }
 
     @Test
-    void testCase36(){
+    void testCase4(){
         Exception exception = assertThrows(NullPointerException.class, () -> {
-            DagligSkaev dagligSkaev = Controller.getTestController().opretDagligSkaevOrdination(
+            Controller.getTestController().opretDagligSkaevOrdination(
                     LocalDate.of(2025, 1,1),
                     LocalDate.of(2025, 1,1),
                     null,
@@ -80,9 +80,9 @@ class OpretDagligSkaevOrdinationTest {
     }
 
     @Test
-    void testCase37(){
+    void testCase5(){
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            DagligSkaev dagligSkaev = Controller.getTestController().opretDagligSkaevOrdination(
+            Controller.getTestController().opretDagligSkaevOrdination(
                     LocalDate.of(2025, 1,1),
                     LocalDate.of(2025, 1,1),
                     new Patient("010125-2025", "Christian", 85.5),
@@ -99,9 +99,9 @@ class OpretDagligSkaevOrdinationTest {
     }
 
     @Test
-    void testCase38(){
+    void testCase6(){
         Exception exception = assertThrows(IllegalArgumentException.class, () -> {
-            DagligSkaev dagligSkaev = Controller.getTestController().opretDagligSkaevOrdination(
+            Controller.getTestController().opretDagligSkaevOrdination(
                     LocalDate.of(2025, 1,1),
                     LocalDate.of(2025, 1,1),
                     new Patient("010125-2025", "Christian", 85.5),
