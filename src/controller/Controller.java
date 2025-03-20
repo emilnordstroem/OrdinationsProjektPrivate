@@ -58,6 +58,7 @@ public class Controller {
 		} else if (morgenAntal < 0 || middagAntal < 0 || aftenAntal < 0 || natAntal < 0) {
 			throw new IllegalArgumentException("antal må ikke være under 0");
 		}
+
 		DagligFast dagligFast = new DagligFast(startDato, slutDato);
 
 		dagligFast.opretDosis(LocalTime.of(8,0), morgenAntal);

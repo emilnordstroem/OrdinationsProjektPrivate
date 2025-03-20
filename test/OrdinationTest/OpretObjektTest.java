@@ -12,33 +12,33 @@ import static org.junit.jupiter.api.Assertions.*;
 public class OpretObjektTest {
 
     @Test
-    void testOrdinationOprettetForStartdatoFørSlutdato() {
+    void testCase1() {
         Ordination ordination = new DagligFast(LocalDate.of(2024,3, 5), LocalDate.of(2024,3,10));
         assertInstanceOf(Ordination.class, ordination);
     }
 
     @Test
-    void testOrdinationIkkeOprettetForStartdatoEfterSlutdato() {
+    void testCase2() {
         assertThrows(IllegalArgumentException.class, () -> new DagligFast(LocalDate.of(2024,3, 10), LocalDate.of(2024,3,5)));
     }
 
     @Test
-    void testOrdinationIkkeOprettetForStartdatoNull() {
+    void testCase3() {
         assertThrows(NullPointerException.class, () -> new DagligFast(null, LocalDate.of(2024,3,5)));
     }
 
     @Test
-    void testOrdinationIkkeOprettetForSlutdatoNull() {
+    void testCase4() {
         assertThrows(NullPointerException.class, () -> new DagligFast(LocalDate.of(2024,3, 10), null));
     }
 
     @Test
-    void testOrdinationIkkeOprettetForBådeStartOgSlutdatoNull() {
+    void testCase5() {
         assertThrows(NullPointerException.class, () -> new DagligFast(null, null));
     }
 
     @Test
-    void testOrdinationOprettetForBådeStartOgSlutdatoSamme() {
+    void testCase6() {
         Ordination ordination = new DagligFast(LocalDate.of(2024,12, 31), LocalDate.of(2024,12,31));
         assertInstanceOf(Ordination.class, ordination);
     }
